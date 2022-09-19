@@ -6,8 +6,8 @@ from loguru  import logger
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 
 
-def write_task(task = "echo 'Hello World'"):
-    logger.info(f'Writing task "{task}"')
+def submit_task(task = "echo 'Hello World'"):
+    
     logger.info(f"{cache_path}/queue_database.bin.lock")
     lock = FileLock(f"{cache_path}/queue_database.bin.lock")
     queue_datebase = SqliteDict(f"{cache_path}/queue_database.bin", autocommit=True)
@@ -19,4 +19,4 @@ def write_task(task = "echo 'Hello World'"):
         queue = queue_datebase[b'queue']
         queue.append(task)
         queue_datebase[b'queue'] = queue
-        print(queue_datebase[b'queue'])
+

@@ -1,16 +1,16 @@
 import fire
-from .worker import worker_loop
-from .writer import write_task        
+from .agent import agent_loop
+from .submit import submit_task        
 from appdirs import user_cache_dir
 import os
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 os.makedirs(cache_path, exist_ok=True)
 
 def main_loop(cmd:str, task=None):
-    if cmd == "worker":
-        worker_loop()
-    if cmd=="write":
-        write_task(task)
+    if cmd == "agent":
+        agent_loop()
+    if cmd=="submit":
+        submit_task(task)
         
     else:
         print("Unknown command")

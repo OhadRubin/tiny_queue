@@ -17,8 +17,8 @@ def get_next_task():
                     next_task = queue.pop()
                     queue_datebase[b'queue'] = queue
                     return next_task
-def worker_loop():
-    logger.info(f"Starting worker")
+def agent_loop():
+    logger.info(f"Starting agent")
     while True:
         next_task = get_next_task()
         logger.info(f'Running task "{next_task}"')

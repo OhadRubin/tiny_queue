@@ -1,5 +1,5 @@
+README.md
 setup.py
-tiny_queue/worker.py
 tiny_queue.egg-info/PKG-INFO
 tiny_queue.egg-info/SOURCES.txt
 tiny_queue.egg-info/dependency_links.txt
