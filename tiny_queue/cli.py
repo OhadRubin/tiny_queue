@@ -11,6 +11,16 @@ def main_loop(cmd:str, task=None):
         agent_loop()
     if cmd=="submit":
         submit_task(task)
+    if cmd=="clear":
+        clear_queue()
+    if cmd=="list":
+        list_queue()
+    if cmd=="help":
+        print("#TODO help")
+    if cmd=="killall":
+        killall()
+    if cmd=="remove":
+        remove_task(task)
         
     else:
         print("Unknown command")
