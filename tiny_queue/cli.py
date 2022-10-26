@@ -7,7 +7,7 @@ import os
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 os.makedirs(cache_path, exist_ok=True)
 
-def main_loop(cmd:str, task=None,queue="sqlite"):
+def main_loop(cmd:str, task=None,queue="redis"):
     if cmd == "agent":
         agent_loop(queue)
     elif cmd=="submit":
