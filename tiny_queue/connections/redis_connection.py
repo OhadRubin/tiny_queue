@@ -1,7 +1,7 @@
 from appdirs import user_cache_dir
 from redis_dict import RedisDict
 from redis import Redis
-import redis_lock
+# import redis_lock
 import pathlib
 import json
 from contextlib import contextmanager
