@@ -1,2 +1,0 @@
-[console_scripts]
-tiny_queue = tiny_queue.cli:main

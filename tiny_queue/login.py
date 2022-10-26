@@ -1,7 +1,6 @@
 from appdirs import user_cache_dir
 import getpass
 import json
-from appdirs import user_cache_dir
 
 
 CACHE_PATH = user_cache_dir("tiny_cache", "tiny_cache")
