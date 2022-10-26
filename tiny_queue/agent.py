@@ -2,8 +2,8 @@ from sqlitedict import SqliteDict
 from filelock import FileLock
 from loguru  import logger
 import subprocess
-from tiny_queue.connections.redis import RedisConnection
-from tiny_queue.connections.sqlite import SqliteConnection
+from tiny_queue.connections.redis_connection import RedisConnection
+from tiny_queue.connections.sqlite_connection import SqliteConnection
 
 
 

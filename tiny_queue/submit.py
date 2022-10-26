@@ -1,7 +1,7 @@
 
 from loguru  import logger
-from tiny_queue.connections.redis import RedisConnection
-from tiny_queue.connections.sqlite import SqliteConnection
+from tiny_queue.connections.redis_connection import RedisConnection
+from tiny_queue.connections.sqlite_connection import SqliteConnection
 
 
 
@@ -16,7 +16,7 @@ def write_task(task, queue_datebase):
 
 
 
-def submit_task(task, queue="redis"):
+def submit_task(task, queue):
     
     if queue=="sqlite":
         conn = SqliteConnection()

@@ -8,3 +8,4 @@ tiny_queue.egg-info/top_level.txt
 tiny_queue/__pycache__/cli.cpython-38.pyc
 tiny_queue/__pycache__/cli.cpython-38.pyc
 tiny_queue/__pycache__/*
+tiny_queue/connections/__pycache__/*
