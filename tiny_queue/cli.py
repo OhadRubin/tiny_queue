@@ -1,6 +1,7 @@
 import fire
 from .agent import agent_loop
 from .submit import submit_task        
+from .login import redis_login
 from appdirs import user_cache_dir
 import os
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
@@ -15,6 +16,8 @@ def main_loop(cmd:str, task=None):
         clear_queue()
     if cmd=="list":
         list_queue()
+    if cmd=="login":
+        redis_login()
     if cmd=="help":
         print("#TODO help")
     if cmd=="killall":
