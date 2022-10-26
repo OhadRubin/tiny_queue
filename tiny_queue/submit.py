@@ -4,15 +4,17 @@ from tiny_queue.connections.redis_connection import RedisConnection
 from tiny_queue.connections.sqlite_connection import SqliteConnection
 
 
+#set loguru logger to a specified level
+# def set_loguru_level(level):
 
-def write_task(task, queue_datebase):
-    logger.info(f"{len(queue_datebase)} items in the db")
-    if b"queue" not in queue_datebase:
-        queue_datebase[b'queue'] = []
-        
-    queue = queue_datebase[b'queue']
-    queue.append(task)
-    queue_datebase[b'queue'] = queue
+
+
+def write_task(task, conn):
+    with conn.get_queue() as queue_datebase:
+        logger.info(f"{len(queue_datebase)} items in the db")
+        queue = queue_datebase.pop(b"queue",[])
+        queue.append(task)
+        queue_datebase[b'queue'] = queue
 
 
 
@@ -24,6 +26,6 @@ def submit_task(task, queue):
         conn = RedisConnection()
     else:
         raise ValueError("queue must be sqlite or redis")
-    with conn.get_queue() as queue_datebase:
-        write_task(task, queue_datebase)
+    logger.info(f"Submitting task {task}")
+    write_task(task, conn)
     

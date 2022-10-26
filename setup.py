@@ -9,7 +9,7 @@ setuptools.setup(
     long_description="",
     long_description_content_type="text/plain",
     url="",
-    packages=setuptools.find_packages(),
+    packages=["tiny_queue","tiny_queue.connections"],
     include_package_data=True,
     classifiers=[],
     python_requires=">=3.6",
@@ -24,7 +24,8 @@ setuptools.setup(
         "loguru == 0.6.0",
         "cryptography==37.0.1",
         "redis-dict==1.6.0",
-        "python-redis-lock==4.0.0",
+        # "python-redis-lock==4.0.0",
+        "pottery==3.0.0",
     ],
     
     entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli:main"]},

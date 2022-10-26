@@ -7,6 +7,7 @@ import json
 from contextlib import contextmanager
 
 CACHE_PATH = user_cache_dir("tiny_cache", "tiny_cache")
+from pottery import Redlock
 
 
 class RedisConnection:
@@ -15,13 +16,16 @@ class RedisConnection:
 
     @contextmanager
     def get_queue(self): 
-        lock  = redis_lock.Lock(Redis(**self.redis_config), "queue")
         db = RedisDict(**self.redis_config)
+        redis = Redis(**self.redis_config)
+        lock = Redlock(key='queue', masters={redis})
         with lock:
             try:
                 yield db
             finally:
                 pass
+        # return lock,db
+        # with  db.expire_at(None):
             
     @staticmethod
     def redis_config():
