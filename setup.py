@@ -26,6 +26,6 @@ setuptools.setup(
         "redis-dict==1.6.0",
     ],
     
-    entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli"]},
+    entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli:main"]},
 
 )
