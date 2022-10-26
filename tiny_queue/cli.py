@@ -1,7 +1,7 @@
 import fire
-from .agent import agent_loop
-from .submit import submit_task        
-from .login import redis_login
+from tiny_queue.agent import agent_loop
+from tiny_queue.submit import submit_task        
+from tiny_queue.login import redis_login
 from appdirs import user_cache_dir
 import os
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
@@ -28,5 +28,5 @@ def main_loop(cmd:str, task=None):
     else:
         print("Unknown command")
     
-def main():
-    fire.Fire(main_loop)
+# def main():
+fire.Fire(main_loop)
