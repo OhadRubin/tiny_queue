@@ -22,6 +22,8 @@ setuptools.setup(
         "fire == 0.4.0",
         "filelock == 3.8.0",
         "loguru == 0.6.0",
+        "cryptography==37.0.1",
+        "redis-dict==1.6.0",
     ],
     
     entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli:main"]},
