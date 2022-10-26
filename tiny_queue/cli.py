@@ -31,5 +31,5 @@ def main_loop(cmd:str, task=None):
 def main():
     fire.Fire(main_loop)
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+main()
