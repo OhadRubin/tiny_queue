@@ -1,7 +1,6 @@
 from appdirs import user_cache_dir
 from redis_dict import RedisDict
 from redis import Redis
-# import redis_lock
 import pathlib
 import json
 from contextlib import contextmanager
@@ -24,8 +23,6 @@ class RedisConnection:
                 yield db
             finally:
                 pass
-        # return lock,db
-        # with  db.expire_at(None):
             
     @staticmethod
     def redis_config():

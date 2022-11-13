@@ -26,6 +26,7 @@ setuptools.setup(
         "redis-dict==1.6.0",
         # "python-redis-lock==4.0.0",
         "pottery==3.0.0",
+        "retry==0.9.2",
     ],
     
     entry_points={"console_scripts": ["tiny_queue = tiny_queue.cli:main"]},

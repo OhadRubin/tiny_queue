@@ -8,12 +8,17 @@ from tiny_queue.connections.redis_connection import RedisConnection
 from tiny_queue.connections.sqlite_connection import SqliteConnection
 import time
 
+from retry import retry
 
+@retry(backoff=2, tries=10)
+def get_queue(queue_datebase):
+    queue = queue_datebase.pop(b'queue',[])
+    return queue
 
 def get_next_task(conn):
     logger.debug("Getting next task")
     while True:
-        # time.sleep(1)
+        time.sleep(0.5)
         # lock,queue_datebase = 
         logger.debug("Before locking")
         # with lock,queue_datebase:
@@ -23,7 +28,9 @@ def get_next_task(conn):
             # try:
                 
                 # if b"queue" in queue_datebase:
-            queue = queue_datebase.pop(b'queue',[])
+            queue = get_queue(queue_datebase)
+            # .pop(b'queue',[])
+            
             if len(queue)>0:
                 next_task = queue.pop()
                 queue_datebase[b'queue'] = queue
@@ -47,5 +54,6 @@ def agent_loop(queue="redis"):
             subprocess.check_call(next_task,shell=True)
         except:
             pass
+        logger.info(f'Finished task "{next_task}"')
         
         
