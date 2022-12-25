@@ -18,6 +18,8 @@ def main_loop(cmd:str, task=None,queue="redis",username=None,password=None,host=
         list_queue()
     elif cmd=="login":
         redis_login((username,password,host,port,))
+    elif cmd=="login_interactive":
+        redis_login()
     elif cmd=="help":
         print("#TODO help")
     elif cmd=="killall":
