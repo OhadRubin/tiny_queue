@@ -24,9 +24,9 @@ def redis_login(tup=None):
     else:
         username,password,host,port = tup
         assert password is not None
-        username = "default" if username is None
-        port = "default" if port is None
-        host = DEFAULT_HOST if host is None
+        username = "default" if username is None else username
+        port = "default" if port is None else port
+        host = DEFAULT_HOST if host is None else host
     logger.info("Saving config.")
         
     with open(f"{CACHE_PATH}/redis_config.json","w") as f:
