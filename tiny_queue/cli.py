@@ -7,7 +7,7 @@ import os
 cache_path = user_cache_dir("tiny_cache", "tiny_cache")
 os.makedirs(cache_path, exist_ok=True)
 
-def main_loop(cmd:str, task=None,queue="redis"):
+def main_loop(cmd:str, task=None,queue="redis",username=None,password=None,host=None,port=None):
     if cmd == "agent":
         agent_loop(queue)
     elif cmd=="submit":
@@ -17,7 +17,7 @@ def main_loop(cmd:str, task=None,queue="redis"):
     elif cmd=="list":
         list_queue()
     elif cmd=="login":
-        redis_login()
+        redis_login(username,password,host,port)
     elif cmd=="help":
         print("#TODO help")
     elif cmd=="killall":
